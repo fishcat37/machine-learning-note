@@ -6,7 +6,9 @@
 在transformer中,decoder会用到encoder最后输出的注意力过的token向量矩阵,在交叉注意力中,q生成的矩阵是掩码器自身的未mask的部分的,kv都是以encoder的输出生成的
 
 # 按特性
+
 ## 掩码注意力
+
 在计算q和k矩阵乘法得到q*k后对这个矩阵mask,将未来部份记为负无穷,让他的softmax为0,当前预测的token不会掩码
 
 # 按种类
