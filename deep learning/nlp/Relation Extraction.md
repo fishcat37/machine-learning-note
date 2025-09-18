@@ -72,3 +72,7 @@
 
 * **设计更复杂** ，训练难度大。
 * 实现上需要精心建模，否则性能未必优于 pipeline。
+
+# gplinker
+
+在gplinker中很重要的是gp(global pointer)，经典gplinker中会有三个gp，其中实体分类一个，实体的gp不区分主体与客体，只区分实体，他会有一个矩阵存储句子中词元的实体分数，其形状为(d,d)，位置(i,j)表示从i到j的词元为实体的logit，所以它需要下掩码，同时对于padding的部分也要进行mask，对于关系分类，我们有两个gp，其中一个用于打分head，另外一个用于打分tail，其输出的形状为(n,d,d)这里的n就是关系种类数，这样才能指明关系实体对的边界，同时他也需要进行和实体gp一样的mask，使用-inf填充mask的位置。对于efficient GPLinker，他改动的点在于关系分类处，传统的gplinker在增加关系数时会导致占用大幅上升，efficient通过先判断一对实体是否有关系再判断他们具体的关系来减少了参数量，在计算MultilabelCategoricalCrossentropy的时候应该使用log-sum-exp trick来保证数值稳定。并且要使用RoPE 旋转位置编码
