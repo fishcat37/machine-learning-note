@@ -43,3 +43,8 @@ $x_{l+1} = x_l + F(\text{LN}(x_l))$
 ## GroupNorm(GN)
 
 从batch的channel独立换成了channel分组，将这个组内的联合起来了
+
+## RMS Norm
+
+
+
