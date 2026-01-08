@@ -4,8 +4,7 @@
 
 ## 目录结构
 
-- [machine learning](machine learning) - 机器学习相关笔记
-- [deep learning](deep learning) - 深度学习相关笔记
-  - [cnn](deep learning/cnn) - 卷积神经网络相关笔记
-  - [rnn](deep learning/rnn) - 循环神经网络相关笔记
-  - [transformer](deep learning/transformer) - Transformer相关笔记
+- [ml](ml) - 机器学习相关笔记
+- [rl](rl) - 强化学习相关笔记
+- [usl](usl) - 无监督学习笔记
+- [dl](dl) - 深度学习相关笔记
