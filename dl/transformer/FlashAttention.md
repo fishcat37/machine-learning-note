@@ -1,0 +1,3 @@
+标准的Attention在计算速度和吞吐量上极差，FlashAttention使用一系列原理与工程上的优化在性能损失极少的情况下将FullAttention的速度提升了10倍以上，FlashAttention已有4个版本，最近的一个研究解决了FlashAttention训练不能全程使用bf16的问题，通过定位梯度污染的点，将某个特定算子精度提升来保证整体低精度下loss不会再训练后期飙升
+## softmax操作的反向传播
+首先我们需要知道softmax算子的反向传播公式，对于输入向量$s$，其中每个$s_i$都是一个向量，对每个$s_i$进行按行应用softmax，得到$p$，其中每一个$p_i$都是归一化好的向量，在反向传播中，假如已获得$dp$，那么$ds=dsoftmax(dp)$
